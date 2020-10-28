@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+pytest = "*"
+pytest-cov = "*"
+pytest-html = "*"
+euler = {editable = true,path = "."}
+
+[packages]
+euler = {path = ".",editable = true}
+
+[pipenv]
+allow_prereleases = true
