@@ -35,8 +35,10 @@ def main():
 
         assert answer == answers[number - 1], f'my answer, {answer}, is wrong'
 
-        length = (end - start) / 1000000
+        ms = (end - start) / 1000000
+
+        assert ms < 1000, f'took too long! {ms}'
 
         print(f'Answer: {answer}')
-        print(f'  Time: {length}')
+        print(f'  Time: {ms}')
 
