@@ -35,19 +35,6 @@ def largest_palindrome(digits):
 
 def main():
 
-    print(is_palindrome(101))
-    print(is_palindrome(1001))
-    print(is_palindrome(2001))
-    print(is_palindrome('penis'))
-    print(is_palindrome('foobarraboof'))
-    print(is_palindrome('foobaraboof'))
-
-    print(n_digit_numbers(1))
-    print(n_digit_numbers(2))
-    print(n_digit_numbers(3))
-
-    print(palindromes_in_products(3))
-
     print(largest_palindrome(3))
 
 

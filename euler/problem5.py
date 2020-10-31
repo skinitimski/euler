@@ -51,7 +51,7 @@ def smallest_divisible_by_divisors(n):
 
 def main():
 
-    for i in range(2, 20):
+    for i in range(10, 21):
 
         print(i, smallest_divisible_by_divisors(i))
 
