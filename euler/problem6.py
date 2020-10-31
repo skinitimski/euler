@@ -16,8 +16,13 @@ def difference(n):
     return square_of_sum(n) - sum_of_squares(n)
 
 
-def main():
+def show():
 
     for i in range(10, 101, 10):
 
         print(i, difference(i))
+
+
+def answer():
+
+    return difference(100)

@@ -15,12 +15,13 @@ def sum_of_multiples(limit):
     return sum(deduped)
 
 
-
-
-def main():
+def show():
 
     print(sum_of_multiples(10))
     print(sum_of_multiples(1000))
 
 
+def answer():
+
+    return sum_of_multiples(1000)
 

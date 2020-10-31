@@ -33,9 +33,12 @@ def largest_palindrome(digits):
     return max(palindromes_in_products(digits), key=key)
 
 
-def main():
+def show():
 
     print(largest_palindrome(3))
 
 
+def answer():
+
+    return largest_palindrome(3)
 

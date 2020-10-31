@@ -27,9 +27,14 @@ def smallest_divisible_by_divisors(n):
     return smallest
 
 
-def main():
+def show():
 
     for i in range(10, 21):
 
         print(i, smallest_divisible_by_divisors(i))
+
+
+def answer():
+
+    return smallest_divisible_by_divisors(20)
 

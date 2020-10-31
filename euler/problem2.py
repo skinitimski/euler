@@ -18,11 +18,12 @@ def sum_of_even_fibonacci(limit):
     return sum(t for t in fibonacci(limit) if t % 2 == 0)
 
 
-def main():
+def show():
 
     print(sum_of_even_fibonacci(4000000))
 
 
+def answer():
 
-
+    return sum_of_even_fibonacci(4000000)
 
