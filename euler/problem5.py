@@ -1,25 +1,57 @@
+from math import sqrt, prod
+
+
+def factors(n):
+
+    j = 2
+
+    while n > 1:
+
+        for i in range(j, int(sqrt(n)) + 1):
+
+            if n % i == 0:
+
+                n = int(n / i)
+                j = i
+
+                yield i
+                break
+
+        else:
+
+            if n > 1:
+
+                yield n
+                break
+
+
+def is_divisible_by_all(n, divisors):
+
+    return all(n % d == 0 for d in divisors)
+
+
 def smallest_divisible_by_divisors(n):
 
-    i = 1
+    divisors = list(range(2, n + 1))
 
-    while True:
+    smallest = prod(divisors)
 
-        if all([True if i % divisor == 0 else False for divisor in range(1, n + 1]):
+    for divisor in divisors:
 
-            break
+        for f in factors(divisor):
 
-        i += 1
+            poop = int(smallest / f)
 
-        if i % 100000 == 0:
+            if is_divisible_by_all(poop, divisors):
 
-            print('.', end='')
+                smallest = poop
 
-    return i
+    return smallest
+
 
 def main():
 
-    # the results side-by-side are surprising!
-
-    for i in range(10, 21):
+    for i in range(2, 20):
 
         print(i, smallest_divisible_by_divisors(i))
+
