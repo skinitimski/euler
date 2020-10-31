@@ -1,5 +1,6 @@
 from math import pow
 
+
 def sum_of_squares(n):
 
     return sum([x * x for x in range(1, n + 1)])
