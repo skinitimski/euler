@@ -27,19 +27,35 @@ def all_factors(n):
             yield f
 
 
+def factor_multiplicity(n):
+
+    i = 1
+
+    fm = {}
+
+    for factor in factors(n):
+
+        if factor != i:
+
+            i = factor
+            fm[factor] = 0
+
+        fm[factor] += 1
+
+    return fm
+
+
 def divisors(n):
 
-    for i in range(1, int(sqrt(n)) + 1):
+    d = [1]
 
-        if n % i == 0:
+    print(factor_multiplicity(n))
 
-            q = int(n / i)
+    for p, m in factor_multiplicity(n).items():
 
-            yield i
+        d += [x*p**k for k in range(1, m + 1) for x in d]
 
-            if q != i:
-
-                yield q
+    return d
 
 
 def first_triangle_number_with_more_than_n_divisors(n):
@@ -52,6 +68,7 @@ def first_triangle_number_with_more_than_n_divisors(n):
 
 
 def answer():
+
 
     return first_triangle_number_with_more_than_n_divisors(500)
 
