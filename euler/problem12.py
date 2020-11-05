@@ -30,28 +30,26 @@ def all_factors(n):
 def factor_multiplicity(n):
 
     i = 1
-
-    fm = {}
+    c = 0
 
     for factor in factors(n):
 
         if factor != i:
 
+            yield i, c
             i = factor
-            fm[factor] = 0
+            c = 0
 
-        fm[factor] += 1
+        c += 1
 
-    return fm
+    yield i, c
 
 
 def divisors(n):
 
     d = [1]
 
-    print(factor_multiplicity(n))
-
-    for p, m in factor_multiplicity(n).items():
+    for p, m in factor_multiplicity(n):
 
         d += [x*p**k for k in range(1, m + 1) for x in d]
 
