@@ -42,8 +42,7 @@ answers = [
     45228,
 ]
 
-
-def main():
+def solve():
 
     for (number, module) in problems:
 
@@ -59,8 +58,13 @@ def main():
 
         ms = (end - start) / 1000000
 
-        assert ms < 1000, f'took too long! {ms}'
+        assert ms < 2000, f'took too long! {ms}'
 
         print(f'Answer: {answer}')
         print(f'  Time: {ms}')
 
+
+def main():
+
+    solve()
+    #problems[13][1].stress()
