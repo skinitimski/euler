@@ -34,7 +34,7 @@ def find_paths(graph, lookup, start, end):
 
         paths = [[end]]
 
-    if len(graph[start]) == 1:
+    elif len(graph[start]) == 1:
 
         paths_from_there = find_paths(graph, lookup, graph[start][0], end)
 
