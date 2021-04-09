@@ -24,6 +24,31 @@ def generate_graph(n):
     return edges
 
 
+def count_paths(graph, lookup, start, end):
+
+    if start in lookup:
+
+        paths = lookup[start]
+
+    elif start == end:
+
+        paths = 1
+
+    elif len(graph[start]) == 1:
+
+        paths = count_paths(graph, lookup, graph[start][0], end)
+
+    elif len(graph[start]) == 2:
+
+        paths = count_paths(graph, lookup, graph[start][0], end) + count_paths(graph, lookup, graph[start][1], end)
+
+    if start not in lookup:
+
+        lookup[start] = paths
+
+    return paths
+
+
 def find_paths(graph, lookup, start, end):
 
     if start in lookup:
@@ -52,31 +77,24 @@ def find_paths(graph, lookup, start, end):
     return paths
 
 
-def find_all_routes(n):
+def count_all_routes(n):
 
-    graph = generate_graph(n)
+    graph = generate_graph(n + 1)
 
     lookup = {}
 
     start = (0, 0)
 
-    end = (n - 1, n - 1)
+    end = (n, n)
 
-    paths = find_paths(graph, lookup, start, end)
+    paths = count_paths(graph, lookup, start, end)
 
     return paths
 
 
-def count_all_routes(n):
-
-    return len(find_all_routes(n))
 
 
 def answer():
 
-    for n in range(2, 15):
-
-        print(n, count_all_routes(n))
-
-    return 'poop'
+    return count_all_routes(20)
 
