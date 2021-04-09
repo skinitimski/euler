@@ -24,9 +24,11 @@ def generate_graph(n):
     return edges
 
 
-def find_paths(graph, start, end):
+def find_paths(graph, lookup, start, end):
 
-    #print(start, end, graph[start])
+    if start in lookup:
+
+        return lookup[start]
 
     if start == end:
 
@@ -34,29 +36,33 @@ def find_paths(graph, start, end):
 
     if len(graph[start]) == 1:
 
-        paths_from_there = find_paths(graph, graph[start][0], end)
+        paths_from_there = find_paths(graph, lookup, graph[start][0], end)
 
         paths = [[start] + p for p in paths_from_there]
 
     elif len(graph[start]) == 2:
 
-        paths_from_left = find_paths(graph, graph[start][0], end)
-        paths_from_rite = find_paths(graph, graph[start][1], end)
+        paths_from_left = find_paths(graph, lookup, graph[start][0], end)
+        paths_from_rite = find_paths(graph, lookup, graph[start][1], end)
 
         paths = [[start] + p for p in paths_from_left + paths_from_rite]
+
+    lookup[start] = paths
 
     return paths
 
 
 def find_all_routes(n):
 
-    g = generate_graph(n)
+    graph = generate_graph(n)
+
+    lookup = {}
 
     start = (0, 0)
 
     end = (n - 1, n - 1)
 
-    paths = find_paths(g, start, end)
+    paths = find_paths(graph, lookup, start, end)
 
     return paths
 
