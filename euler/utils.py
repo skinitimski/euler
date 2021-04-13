@@ -1,5 +1,10 @@
 from math import sqrt
 
+def sum_of_digits(n):
+
+    return sum(int(i) for i in str(n))
+
+
 def factors(n):
 
     j = 2

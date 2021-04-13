@@ -1,4 +1,7 @@
+from euler.utils import sum_of_digits
+
+
 def answer():
 
-    return sum(int(i) for i in list(str(2 ** 1000)))
+    return sum_of_digits(2 ** 1000)
 

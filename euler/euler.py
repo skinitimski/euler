@@ -3,7 +3,7 @@ from importlib import import_module
 from time import time_ns
 
 
-problems_solved = range(1, 19)
+problems_solved = range(1, 21)
 
 problems = [(problem, import_module(f'euler.problem{problem}')) for problem in problems_solved]
 
@@ -27,7 +27,7 @@ answers = [
     21124,
     1074,
     171,
-    648,
+    648, # 20
     31626,
     871198282,
     4179871,
