@@ -3,7 +3,7 @@ from importlib import import_module
 from time import time_ns
 
 
-problems_solved = range(1, 17)
+problems_solved = range(1, 19)
 
 problems = [(problem, import_module(f'euler.problem{problem}')) for problem in problems_solved]
 
@@ -17,12 +17,12 @@ answers = [
     104743,
     23514624000,
     31875000,
-    142913828922,
+    142913828922, # 10
     70600674,
     76576500,
     5537376230,
     837799,
-    137846528820,
+    137846528820, # 15
     1366,
     21124,
     1074,
@@ -46,7 +46,7 @@ def solve():
 
     for (number, module) in problems:
 
-        print(f'Problem {number} ---------')
+        print(f'--- Problem: {number} ------------------')
 
         start = time_ns()
 
@@ -60,8 +60,8 @@ def solve():
 
         assert ms < 2000, f'took too long! {ms}'
 
-        print(f'Answer: {answer}')
-        print(f'  Time: {ms}')
+        print(f'     Answer: {answer}')
+        print(f'  Time (ms): {ms}')
 
 
 def main():
