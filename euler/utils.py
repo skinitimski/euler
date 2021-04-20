@@ -29,3 +29,32 @@ def factors(n):
                 break
 
 
+def divisors(n):
+
+    d = [1]
+
+    for p, m in factor_multiplicity(n):
+
+        d += [x*p**k for k in range(1, m + 1) for x in d]
+
+    return d
+
+
+def factor_multiplicity(n):
+
+    i = 1
+    c = 0
+
+    for factor in factors(n):
+
+        if factor != i:
+
+            yield i, c
+            i = factor
+            c = 0
+
+        c += 1
+
+    yield i, c
+
+

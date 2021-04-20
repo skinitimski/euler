@@ -3,7 +3,7 @@ from importlib import import_module
 from time import time_ns
 
 
-problems_solved = range(1, 21)
+problems_solved = range(1, 22)
 
 problems = [(problem, import_module(f'euler.problem{problem}')) for problem in problems_solved]
 
@@ -54,7 +54,9 @@ def solve():
 
         end = time_ns()
 
-        assert answer == answers[number - 1], f'my answer, {answer}, is wrong'
+        right_answer = answers[number - 1]
+
+        assert answer == right_answer, f'my answer, {answer}, is wrong. The right answer is {right_answer}'
 
         ms = (end - start) / 1000000
 
